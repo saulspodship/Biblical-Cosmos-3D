@@ -1,0 +1,18 @@
+{
+  "name": "Biblical Cosmos 3D — Saul's Podship",
+  "short_name": "Biblical Cosmos",
+  "description": "An interactive biblical cosmology and firmament study from Saul's Podship.",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#060a12",
+  "theme_color": "#060a12",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/assets/cosmos-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

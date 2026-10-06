@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#070c16"/><stop offset=".58" stop-color="#101b2a"/><stop offset="1" stop-color="#07101a"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#cbad6a" stop-opacity=".28"/><stop offset="1" stop-color="#cbad6a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="vault" x1="0" y1="0" x2="1" y2=".7"><stop stop-color="#f2dda5" stop-opacity=".16"/><stop offset=".55" stop-color="#dfc582"/><stop offset="1" stop-color="#af8c53" stop-opacity=".22"/></linearGradient>
+    <linearGradient id="earth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#184964"/><stop offset="1" stop-color="#08192b"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="920" cy="310" r="360" fill="url(#glow)"/>
+  <g fill="#dfd2ab" opacity=".75">
+    <circle cx="81" cy="83" r="2"/><circle cx="265" cy="141" r="1.5"/><circle cx="429" cy="64" r="1.4"/><circle cx="594" cy="119" r="1.8"/><circle cx="701" cy="61" r="1.2"/><circle cx="1114" cy="121" r="1.7"/><circle cx="1120" cy="484" r="1.6"/><circle cx="704" cy="542" r="1.2"/><circle cx="518" cy="441" r="1.4"/><circle cx="78" cy="467" r="1.6"/><circle cx="358" cy="533" r="1.3"/>
+  </g>
+  <text x="84" y="95" fill="#dfc582" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="4">SAUL'S PODSHIP · INTERACTIVE STUDY</text>
+  <text x="80" y="230" fill="#f2eee5" font-family="Georgia, serif" font-size="76">Biblical</text>
+  <text x="80" y="319" fill="#f1d999" font-family="Georgia, serif" font-size="86">Cosmos</text>
+  <text x="463" y="316" fill="#dfc582" font-family="Arial, sans-serif" font-size="27" letter-spacing="5">3D</text>
+  <text x="84" y="385" fill="#d2cbbb" font-family="Arial, sans-serif" font-size="23">Explore a biblical cosmology &amp; firmament model.</text>
+  <text x="84" y="430" fill="#a7a196" font-family="Arial, sans-serif" font-size="17">Interactive views · King James Version passages · Study FAQs</text>
+  <path d="M665 416 C709 232 824 143 946 147 C1054 151 1128 238 1151 417" fill="none" stroke="url(#vault)" stroke-width="3"/>
+  <circle cx="1037" cy="220" r="52" fill="url(#glow)"/><circle cx="1037" cy="220" r="9" fill="#f1d999"/>
+  <path d="M667 422 Q906 388 1151 422 L1136 454 Q904 435 682 454Z" fill="url(#earth)" stroke="#88b5c2" stroke-opacity=".63" stroke-width="2"/>
+  <path d="M687 423 Q905 403 1134 423" fill="none" stroke="#d1e2dd" stroke-opacity=".8" stroke-width="2"/>
+  <ellipse cx="908" cy="423" rx="245" ry="52" fill="none" stroke="#dfc582" stroke-opacity=".42" stroke-width="1.5"/>
+  <path d="M777 425 Q810 406 843 422 Q865 406 890 420 Q922 403 948 420 Q974 406 1005 423 Q1033 409 1066 425" fill="none" stroke="#7ca18c" stroke-opacity=".72" stroke-width="3"/>
+  <text x="84" y="574" fill="#dfc582" font-family="Arial, sans-serif" font-size="14" letter-spacing="2">A PRODUCT OF SAULSPODSHIP.COM</text>
+  <path d="M84 493h250" stroke="#dfc582" stroke-opacity=".55"/>
+</svg>
