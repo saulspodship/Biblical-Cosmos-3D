@@ -1,0 +1,32 @@
+# Biblical Cosmos 3D — Saul's Podship
+
+> Biblical Cosmos 3D is a free, interactive educational visualization of biblical cosmology, the firmament, and selected King James Version (KJV) passages. It is a product of Saul's Podship.
+
+- Canonical page: https://biblicalcosmos3d.saulspodship.com/
+- Publisher: Saul's Podship — https://www.saulspodship.com/
+- Language: English
+- Access: Free; runs in a modern browser with JavaScript and WebGL enabled.
+
+## What the page contains
+
+- A 3D scene with camera presets, a guided tour, interactive controls, and clickable scripture references.
+- Study notes about the firmament, waters above, the earth, the sun and moon, heavenly imagery, and related passages.
+- Frequently asked questions about biblical cosmology, flat-earth interpretations, Genesis 1's firmament, the King James Version, and how to use the model.
+
+## Important context
+
+The scene represents one interpretive visualization of selected biblical and historical cosmological imagery. It is not a scientific model, astronomy simulator, navigational map, or scale representation. Christians interpret passages about the earth, the firmament, and the heavens in different ways. Modern astronomy describes Earth as an oblate spheroid orbiting the Sun. The page links its visual features to KJV passages so readers can assess the texts in context.
+
+## Main topics
+
+- Biblical cosmology and ancient cosmology
+- The firmament (Hebrew *raqia*) in Genesis 1
+- The “waters above” and lights in the heavens
+- Flat-earth interpretations and Bible verses, presented with interpretive context
+- KJV scripture references and interactive biblical imagery
+
+## Related Saul's Podship resources
+
+- Theological encyclopedia: https://www.saulspodship.com/#/encyclopedia
+- Biblical Prophecy Map: https://www.saulspodship.com/#/prophecy-map
+- Podcast: https://www.saulspodship.com/#/podcast

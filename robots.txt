@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://biblicalcosmos3d.saulspodship.com/sitemap.xml
