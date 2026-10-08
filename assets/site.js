@@ -1,6 +1,8 @@
 (() => {
   'use strict';
 
+  const SELF = document.currentScript && document.currentScript.src;
+
   const menuButton = document.getElementById('menu-toggle');
   const navigation = document.getElementById('primary-nav');
 
@@ -36,7 +38,17 @@
   const stage = document.getElementById('viewer-stage');
   const status = document.getElementById('viewer-status');
   const retryButton = document.getElementById('retry-viewer');
+  const intro = document.getElementById('stage-intro');
+  const immersiveButton = document.getElementById('immersive-toggle');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const BASE = (SELF || `${location.origin}/assets/site.js`).replace(/[^/]*$/, '');
+  const VERSION = '?v=20261008';
+  window.COSMOS_BASE = BASE;
+
   let loading = null;
+  let booting = false;
+  let introStart = 0;
+  let introTimer = 0;
 
   function showStatus(message, isError = false) {
     if (!status) return;
@@ -49,74 +61,115 @@
     if (retryButton) retryButton.classList.toggle('hidden', !isError);
   }
 
+  function startIntro() {
+    if (!intro || reduceMotion) return false;
+    clearTimeout(introTimer);
+    intro.classList.remove('is-leaving');
+    intro.classList.add('is-active');
+    introStart = performance.now();
+    return true;
+  }
+
+  function endIntro(immediate) {
+    if (!intro || !intro.classList.contains('is-active')) return;
+    clearTimeout(introTimer);
+    if (immediate) { intro.classList.remove('is-active', 'is-leaving'); return; }
+    intro.classList.add('is-leaving');
+    introTimer = setTimeout(() => intro.classList.remove('is-active', 'is-leaving'), 1500);
+  }
+
   function addScript(src) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
-      script.src = src;
+      script.src = src + VERSION;
       script.async = true;
       script.onload = () => resolve();
-      script.onerror = () => {
-        script.remove();
-        reject(new Error(`Could not load ${src}`));
-      };
+      script.onerror = () => { script.remove(); reject(new Error(`Could not load ${src}`)); };
       document.head.appendChild(script);
     });
   }
 
-  async function loadThree() {
-    if (window.THREE) return;
-    const sources = [
-      'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js',
-      'https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js'
-    ];
+  const nextFrames = (n = 2) => new Promise((resolve) => {
+    const step = () => (--n <= 0 ? resolve() : requestAnimationFrame(step));
+    requestAnimationFrame(step);
+  });
 
-    for (const source of sources) {
-      try {
-        await addScript(source);
-        if (window.THREE) return;
-      } catch (_) {
-        // Try the fallback CDN before reporting a loading error.
-      }
-    }
-    throw new Error('The 3D engine could not be loaded from either CDN.');
+  function fail(message) {
+    booting = false;
+    loading = null;
+    endIntro(true);
+    showStatus(message, true);
   }
 
   async function startViewer() {
     if (loading) return loading;
-    showStatus('Loading the interactive 3D study…');
+    const hasIntro = startIntro();
+    if (hasIntro) status.classList.add('hidden'); else showStatus('Loading the interactive 3D study…');
+    booting = true;
+
     loading = (async () => {
-      await loadThree();
-      await addScript('/assets/cosmos.js');
-      if (!status.classList.contains('status-error')) status.classList.add('hidden');
+      if (!window.THREE || !window.THREE.UnrealBloomPass) await addScript(`${BASE}vendor/three-r128.bundle.min.js`);
+      if (!window.THREE) throw new Error('three.js did not initialise');
+      await nextFrames(2); // let the title card paint before the heavy scene build blocks the thread
+      await addScript(`${BASE}cosmos.js`);
     })().catch((error) => {
       console.error('[Biblical Cosmos 3D]', error);
-      showStatus('The 3D study could not start. Check your connection or browser settings, then retry.', true);
-      loading = null;
+      fail('The 3D study could not start. Check your connection or browser settings, then retry.');
     });
     return loading;
   }
 
+  document.addEventListener('cosmos:ready', () => {
+    booting = false;
+    status.classList.add('hidden');
+    const wait = reduceMotion ? 0 : Math.max(0, 2600 - (performance.now() - introStart));
+    introTimer = setTimeout(() => endIntro(false), wait);
+  });
+
+  // Only a crash while the scene is being built is fatal. Later errors must never blank a working viewer.
   window.addEventListener('error', (event) => {
-    if (event.filename && event.filename.includes('/assets/cosmos.js')) {
-      showStatus('The 3D study encountered a problem. Reload the model to try again.', true);
-      loading = null;
+    if (booting && event.filename && event.filename.includes('/cosmos.js')) {
+      fail('The 3D study encountered a problem while starting. Please retry.');
     }
   });
 
   if (retryButton) retryButton.addEventListener('click', () => {
+    if (window.__cosmosStarted) { location.reload(); return; }
     loading = null;
-    document.querySelectorAll('script[src="/assets/cosmos.js"]').forEach((script) => script.remove());
+    document.querySelectorAll('script[src*="cosmos.js"]').forEach((script) => script.remove());
     startViewer();
   });
+
+  /* ---------- Immersive mode: full-screen stage, scroll-wheel zoom and full touch control ---------- */
+  let immersive = false;
+  async function setImmersive(on) {
+    if (!stage || on === immersive) return;
+    immersive = on;
+    stage.classList.toggle('is-immersive', on);
+    document.documentElement.classList.toggle('has-immersive', on);
+    if (immersiveButton) {
+      immersiveButton.setAttribute('aria-pressed', String(on));
+      immersiveButton.setAttribute('aria-label', on ? 'Exit immersive mode' : 'Enter immersive mode');
+      immersiveButton.title = on ? 'Exit immersive mode (Esc)' : 'Immersive mode: full-screen with scroll zoom';
+    }
+    if (on) {
+      startViewer();
+      if (stage.requestFullscreen) { try { await stage.requestFullscreen({ navigationUI: 'hide' }); } catch (_) { /* CSS fallback is already active */ } }
+    } else if (document.fullscreenElement) {
+      try { await document.exitFullscreen(); } catch (_) { /* ignore */ }
+    }
+    const canvas = document.getElementById('c');
+    if (canvas) canvas.focus({ preventScroll: true });
+  }
+  if (immersiveButton) immersiveButton.addEventListener('click', () => setImmersive(!immersive));
+  document.addEventListener('cosmos:exit-immersive', () => setImmersive(false));
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && immersive) setImmersive(false); });
 
   if (stage) {
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver((entries) => {
-        if (entries.some((entry) => entry.isIntersecting)) {
-          observer.disconnect();
-          startViewer();
-        }
-      }, { rootMargin: '360px 0px', threshold: 0.01 });
+        if (entries.some((entry) => entry.isIntersecting)) { observer.disconnect(); startViewer(); }
+      }, { rootMargin: '700px 0px', threshold: 0.01 });
       observer.observe(stage);
     } else {
       window.setTimeout(startViewer, 250);

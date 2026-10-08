@@ -1,19 +1,23 @@
-# Biblical Cosmos 3D — Saul's Podship
+# Biblical Cosmos 3D
 
-A static, responsive website and interactive biblical-cosmology visualization. The site is prepared to publish at **https://biblicalcosmos3d.saulspodship.com/** and identifies the experience as a product of Saul's Podship.
+Interactive 3D study of biblical cosmology — Saul's Podship.
 
-## Run locally
+Static site, no build step. Deploy the repo root on Vercel (or any static host).
 
-Serve the repository root over HTTP (rather than opening `index.html` as a `file://` URL), for example:
+## Layout
+- `index.html` — page, SEO and the viewer markup
+- `assets/cosmos.js` — the 3D engine (your original scene, unchanged) + controls
+- `assets/vendor/three-r128.bundle.min.js` — three.js r128 + bloom post-processing, served locally (no CDN dependency)
+- `assets/textures/*.jpg` — the original earth colour / roughness / city-light maps
+- `assets/site.js`, `assets/site.css` — page chrome, loader, intro, immersive mode
+- `vercel.json` — long-term caching for vendor files and textures
 
-```sh
-python3 -m http.server 8000 --bind 0.0.0.0
-```
+## Controls
+Drag to orbit · click the model then scroll (or Ctrl/⌘ + scroll, or pinch) to zoom · ⛶ Immersive for full-screen with plain scroll-zoom and full touch control · Esc closes a passage card / leaves immersive.
 
-Open `http://localhost:8000/`. The 3D experience starts only when its viewer approaches the viewport. It loads Three.js from cdnjs with jsDelivr as a fallback; its compressed earth textures are local under `assets/textures/`.
+## Local preview
+`python3 -m http.server 8000` then open http://localhost:8000 (must be served over http, not opened as a file).
 
-## Publish
+When you change `assets/cosmos.js`, `site.js` or `site.css`, bump the `?v=` value in `index.html` and `VERSION` in `site.js` so returning visitors get the new files.
 
-Deploy the repository root as the document root for `biblicalcosmos3d.saulspodship.com` with HTTPS enabled. No build step is required. `index.html` is the entry point; the previous `Biblical Cosmos 3D.html` path redirects to it. `robots.txt` and `sitemap.xml` are already configured for the subdomain.
-
-The page includes a canonical URL, Open Graph/Twitter metadata and image, WebApplication/Organization/FAQ structured data, and visible flat-earth/firmament context. Review the canonical URL and sitemap if the production hostname changes. Search visibility depends on indexing and is not guaranteed by metadata alone.
+Add `?debug` to the URL to expose `window.__cosmos` for inspection.
