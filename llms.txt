@@ -25,6 +25,18 @@ The scene represents one interpretive visualization of selected biblical and his
 - Flat-earth interpretations and Bible verses, presented with interpretive context
 - KJV scripture references and interactive biblical imagery
 
+## Saul's Podship app family
+
+Saul's Podship's About page lists six dedicated public apps, each with its own website. App features and account requirements may vary.
+
+- Biblical Languages — Biblical Hebrew, Koine Greek, Biblical Aramaic and Vulgate Latin study: https://biblicallanguages.saulspodship.com/
+- Saul's Sunday School — Bible learning for children ages 3–12: https://saulssundayschool.saulspodship.com/
+- Evangelism — Scripture-rooted gospel-sharing field guide: https://evangelism.saulspodship.com/
+- Biblical Cosmos 3D — interactive interpretation of biblical cosmology: https://biblicalcosmos3d.saulspodship.com/
+- Biblical Numerology & Etymology (Gematria Lab) — letter values, word histories and text matches: https://biblicalnumerologyandetymology.saulspodship.com/
+- FaithConnect Pro — Christian community, careers, networking, learning, prayer and marketplace: https://faithconnectpro.saulspodship.com/
+- Official app-family overview: https://www.saulspodship.com/#/about
+
 ## Related Saul's Podship resources
 
 - Theological encyclopedia: https://www.saulspodship.com/#/encyclopedia
