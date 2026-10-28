@@ -1,6 +1,6 @@
 # Biblical Cosmos 3D — Saul's Podship
 
-> Biblical Cosmos 3D is a free, interactive educational visualization of biblical cosmology, the firmament, and selected King James Version (KJV) passages. It is a product of Saul's Podship.
+> Biblical Cosmos 3D is a free, interactive educational visualization of biblical cosmology, the firmament, and selected King James Version (KJV) passages. It is a product and property of Saul’s Podship.
 
 - Canonical page: https://biblicalcosmos3d.saulspodship.com/
 - Publisher: Saul's Podship — https://www.saulspodship.com/

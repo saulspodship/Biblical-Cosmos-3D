@@ -4,8 +4,8 @@
   "description": "An interactive biblical cosmology and firmament study from Saul's Podship.",
   "start_url": "/",
   "display": "minimal-ui",
-  "background_color": "#060a12",
-  "theme_color": "#060a12",
+  "background_color": "#F8F4E3",
+  "theme_color": "#4A152C",
   "lang": "en",
   "icons": [
     {

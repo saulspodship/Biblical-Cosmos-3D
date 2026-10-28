@@ -431,3 +431,153 @@ html.has-immersive, html.has-immersive body { overflow: hidden; }
 @media (max-width: 760px) {
   .control-panel.is-collapsed ~ .stage-footnote { bottom: 92px; transition: bottom .4s var(--ease, ease); }
 }
+
+/* Saul’s Podship family theme — cream editorial surfaces, burgundy navigation, gold details.
+   The interactive cosmos remains a dark instrument panel for scene legibility. */
+:root {
+  color-scheme: light;
+  --ink: #1A0812;
+  --ink-soft: #4A152C;
+  --muted: #66545B;
+  --muted-strong: #513D46;
+  --night: #F8F4E3;
+  --night-2: #FDFBF7;
+  --line: rgba(74, 21, 44, .16);
+  --line-cool: rgba(74, 21, 44, .2);
+  --gold: #D4AF37;
+  --gold-bright: #E8C96A;
+  --gold-dim: #9B7720;
+}
+html { background: #F8F4E3; }
+body {
+  background: #F8F4E3;
+  color: #1A0812;
+}
+body::before { display: none; }
+a { text-decoration-color: rgba(74, 21, 44, .4); }
+.site-header {
+  border-bottom-color: rgba(232, 201, 106, .35);
+  background: rgba(74, 21, 44, .97);
+}
+.site-nav { width: min(100% - 64px, 1460px); }
+.brand, .brand-name { color: #FDFBF7; }
+.brand-mark { color: #E8C96A; }
+.brand-tagline { color: rgba(253, 251, 247, .7); }
+.primary-nav a { color: #F1E8DC; }
+.primary-nav a:hover { color: #E8C96A; }
+.nav-cta {
+  border-color: #D4AF37;
+  color: #F5D978;
+}
+.nav-cta:hover { border-color: #E8C96A; background: rgba(232, 201, 106, .15); color: #fff8df; }
+.hero {
+  border-bottom-color: rgba(232, 201, 106, .34);
+  background: radial-gradient(ellipse at 77% 55%, rgba(127, 64, 85, .45), transparent 40%), linear-gradient(115deg, #1A0812, #4A152C 72%, #361020);
+}
+.hero::before { background: radial-gradient(ellipse, rgba(212, 175, 55, .1), transparent 68%); }
+.hero-stars { opacity: .23; }
+.hero h1 { color: #FDFBF7; }
+.hero h1 > span:first-child { color: #E8C96A; }
+.hero-deck { color: #F7EEDC; }
+.hero-context { color: #D6C8C3; }
+.eyebrow { color: #E8C96A; }
+.eyebrow-mark { background: #D4AF37; }
+.hero-meta { color: #D6C8C3; }
+.hero-art { opacity: .82; }
+.button-gold { border-color: #D4AF37; background: #D4AF37; color: #1A0812; }
+.button-gold:hover { border-color: #E8C96A; background: #E8C96A; }
+.button-quiet { border-color: rgba(232, 201, 106, .52); color: #FDFBF7; }
+.button-quiet:hover { border-color: #E8C96A; background: rgba(232, 201, 106, .12); color: #fff8df; }
+.page-section { color: #1A0812; }
+.viewer-section, .context-section, .faq-section { background: #F8F4E3; }
+.section-heading h2, .context-intro h2, .faq-intro h2, .related-copy h2 { color: #1A0812; }
+.section-heading > div > p:last-child, .gesture-guide,
+.context-lede, .faq-intro > p:last-child { color: #66545B; }
+.viewer-frame {
+  color-scheme: dark;
+  --ink: #f2eee5;
+  --ink-soft: #d2cbbb;
+  --muted: #a7a196;
+  --muted-strong: #c0b8a8;
+  --night: #060a12;
+  --night-2: #0a111c;
+  --panel: rgba(8, 15, 25, .94);
+  --panel-soft: rgba(13, 23, 36, .88);
+  --line: rgba(225, 210, 175, .17);
+  --line-cool: rgba(166, 194, 203, .2);
+  --gold: #dfc582;
+  --gold-bright: #f1d999;
+  --gold-dim: #b4965f;
+  --blue: #83b5c5;
+}
+.guide-card {
+  border-color: rgba(74, 21, 44, .18);
+  background: linear-gradient(145deg, #FDFBF7, #F2EBDD);
+  box-shadow: 0 8px 24px rgba(26, 8, 18, .035);
+}
+.guide-number { color: #9B7720; }
+.guide-card h3, .context-note h3 { color: #4A152C; }
+.guide-card p, .context-note p { color: #5E4E54; }
+.guide-card a, .related-links a span { color: #7A4D06; }
+.guide-card a:hover, .related-links a:hover { color: #4A152C; }
+.context-note {
+  border-color: rgba(74, 21, 44, .2);
+  background: linear-gradient(100deg, #FDFBF7, #F3ECDD);
+}
+.context-note-icon { border-color: #9B7720; color: #7A4D06; }
+.faq-section { border-top-color: rgba(74, 21, 44, .17); }
+.faq-list, .faq-item { border-color: rgba(74, 21, 44, .18); }
+.faq-item summary { color: #4A152C; }
+.faq-item summary::after { border-color: rgba(74, 21, 44, .32); color: #7A4D06; }
+.faq-item summary:hover { color: #7A4D06; }
+.faq-answer { color: #513D46; }
+.faq-answer strong { color: #1A0812; }
+.faq-answer a { color: #6A1C3D; }
+.related-section {
+  border-color: rgba(212, 175, 55, .48);
+  background: radial-gradient(ellipse at 6% 80%, rgba(212, 175, 55, .14), transparent 50%), linear-gradient(115deg, #4A152C, #1A0812);
+}
+.related-copy h2 { color: #FDFBF7; }
+.related-copy > p:last-child { color: #E3D5D5; }
+.related-section .eyebrow { color: #E8C96A; }
+.related-links a { border-bottom-color: rgba(232, 201, 106, .25); color: #F7EEDC; }
+.related-links a span { color: #E8C96A; }
+.related-links a:hover { color: #E8C96A; }
+.site-footer {
+  border-top-color: rgba(232, 201, 106, .35);
+  background: #1A0812;
+  color: #FDFBF7;
+}
+.footer-inner, .footer-bottom { width: min(100% - 64px, var(--page-width)); }
+.footer-inner { min-height: 155px; align-items: center; }
+.footer-identity { max-width: 390px; }
+.footer-brand { color: #E8C96A; }
+.footer-brand span { color: #CBBCC0; }
+.ownership-statement { margin: 11px 0 0; color: #F2E8E3; font-size: 11px; line-height: 1.65; }
+.ownership-statement a { color: #E8C96A; font-weight: 650; }
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; max-width: 470px; }
+.footer-links a { color: #E4D8D8; font-size: 10px; text-decoration: none; }
+.footer-links a:hover { color: #E8C96A; text-decoration: underline; text-underline-offset: .25em; }
+.footer-home {
+  border-color: #D4AF37;
+  color: #E8C96A;
+}
+.footer-home:hover { border-color: #E8C96A; background: rgba(232, 201, 106, .12); color: #FFF5D2; }
+.footer-bottom { border-top-color: rgba(232, 201, 106, .2); color: #B8A8AE; }
+.skip-link { background: #4A152C; color: #FDFBF7; }
+
+@media (max-width: 760px) {
+  .primary-nav { background: #3A1022; border-bottom-color: rgba(232, 201, 106, .32); }
+  .primary-nav a { color: #F1E8DC; border-bottom-color: rgba(232, 201, 106, .16); }
+  .menu-toggle { border-color: rgba(232, 201, 106, .52); }
+  .menu-toggle span { background: #E8C96A; }
+  .footer-inner { align-items: flex-start; }
+  .footer-identity { width: 100%; }
+  .footer-links { order: 2; width: 100%; max-width: none; justify-content: flex-start; gap: 10px 17px; }
+  .footer-home { order: 3; }
+  .footer-bottom { color: #C4B5BA; }
+}
+@media (max-width: 420px) {
+  .site-nav { width: calc(100% - 24px); }
+  .footer-inner, .footer-bottom { width: calc(100% - 32px); }
+}

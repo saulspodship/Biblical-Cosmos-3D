@@ -42,7 +42,7 @@
   const immersiveButton = document.getElementById('immersive-toggle');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const BASE = (SELF || `${location.origin}/assets/site.js`).replace(/[^/]*$/, '');
-  const VERSION = '?v=20261008';
+  const VERSION = '?v=20261028';
   window.COSMOS_BASE = BASE;
 
   let loading = null;
