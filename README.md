@@ -15,6 +15,11 @@ Static site, no build step. Deploy the repo root on Vercel (or any static host).
 ## Controls
 Drag to orbit · click the model then scroll (or Ctrl/⌘ + scroll, or pinch) to zoom · ⛶ Immersive for full-screen with plain scroll-zoom and full touch control · Esc closes a passage card / leaves immersive.
 
+## Crawlability
+This is a single indexable page. `/sitemap.xml` lists exactly one URL — the canonical root `https://biblicalcosmos3d.saulspodship.com/` — and `/robots.txt` declares that sitemap with an absolute https URL. `vercel.json` serves both files with explicit content types and `max-age=0, must-revalidate`, so crawlers always revalidate the current sitemap instead of an older cached copy.
+
+Run `python3 scripts/verify-seo.py` to check the sitemap, robots directive, canonical tag, title/description lengths, and Open Graph / Twitter metadata. It exits non-zero if any check fails.
+
 ## Local preview
 `python3 -m http.server 8000` then open http://localhost:8000 (must be served over http, not opened as a file).
 
