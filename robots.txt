@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# One indexable page: the canonical root URL is declared in the sitemap below.
 Sitemap: https://biblicalcosmos3d.saulspodship.com/sitemap.xml
